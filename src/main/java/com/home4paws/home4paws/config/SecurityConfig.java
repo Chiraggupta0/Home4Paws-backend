@@ -35,7 +35,12 @@ public class SecurityConfig {
                                 org.springframework.http.HttpMethod.OPTIONS,
                                 "/**"
                         ).permitAll()
-                        .requestMatchers("/api/auth/**", "/api/pets/**", "/api/products/**").permitAll()
+                        .requestMatchers(
+                                "/health",
+                                "/api/auth/**",
+                                "/api/pets/**",
+                                "/api/products/**"
+                        ).permitAll()
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(session -> session
@@ -57,6 +62,7 @@ public class SecurityConfig {
                         "http://32.196.156.215:4173",
                         "https://home4paws.in",
                         "https://www.home4paws.in"
+                        "https://chiraggupta0.github.io"
                 ));
 
         configuration.setAllowedMethods(
